@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head></head>
+  <body>
+    <ul>
+      <li><a href="/admin">Home</a></li>
+    </ul>
+    <h1></h1>
+    {% for message in get_flashed_messages() %}
+    <div class="flashed_message">{{ message }}</div>
+    {% endfor %}
+   
+    <section class="criteria">
+      <h2>Create Statements Under a Criteria Section</h2>
+      <form action="/admin/criterion-options" method="POST" class="criteria-option">
+	<ul>
+	{% for option in criterion_options %}
+	<li>{{ option.text }}: {{ option.value }}</li>
+	{% endfor %}
+	</ul>
+	<label>Name:</label>
+	<input name="text">
+	<label for="criterion-option-value">Value:</label>
+	<input id="criterion-option-value" type="text" name="value">
+        <input type="submit" value="Create">
+      </form>
+
+      <form action="/admin/criteria" method="POST" class="criterion">
+	<label>Criterion:</label>
+	<input type="text" name="name">
+        <input type="submit" value="Create">
+      </form>
+
+      <form action="/admin/criterion-statements" method="POST" class="criterion-statement">
+	<label>Criterion:</label>
+	<select name="criterion_id">
+	  {% for criterion in criteria %}
+	  <option value="{{ criterion.id }}">{{ criterion.name }}</option>
+	  {% endfor %}
+	</select>
+	<label>Statement:</label>
+	<input name="text">
+        <input type="submit" value="Create">
+      </form>
+    </section>
+
+    <section class="general-statements">
+      <h2>Create Statement not criterilized Section</h2>
+      <form action="/admin/general-statements" method="POST" class="general-statement">
+	<label>Statement:</label>
+	<input name="text">
+        <input type="submit" value="Create">
+      </form>
+
+      <form action="/admin/general-statements/options" method="POST" class="general-statement-option">
+	<label>Statement:</label>
+	<select name="general_statement_id">
+	  {% for statement in general_statements %}
+	  <option value="{{ statement.id }}">{{ statement.text }}</option>
+	  {% endfor %}
+	</select>
+	<label>Name:</label>
+	<input name="text">
+	<label>Value:</label>
+	<input name="value">
+	<input type="submit" value="Create">
+      </form>
+    </section>
+
+    <section class="general-question">
+      <h2>Create Open Ended Question:</h2>
+      <form action="/admin/general-questions" method="POST" class="question form">
+	<label>Question:</label>
+	<input name="question">
+        <input type="submit" value="Create">
+      </form>
+    </section>
+
+  </body>
+</html>

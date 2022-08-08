@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head></head>
+  <body>
+    <h1>{{student.first_name}}, Courses</h1>
+    <h2>Program: {{ student.program.name }}</h2>
+
+    <ul>
+      <li><span class="course">Course</span>: <span class="lecturer">Lecturer</span></li>
+      {%for course in student.program.courses %}
+      <li>
+	<a href="/evaluate/{{ course.id }}?token={{ token }}">
+          <span class="course">{{ course.name }}</span> <span class="lecturer">{{ course.lecturer.name }}</span>
+	</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+  </body>
+</html>

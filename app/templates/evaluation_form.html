@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head></head>
+  <body>
+    <h1></h1>
+    {% for message in get_flashed_messages() %}
+    <div class="flashed_message">{{ message }}</div>
+    {% endfor %}
+    <form class="criteria">
+      <h2>Select Options that best suits</h2>
+
+      {% for criterion in criteria %}
+      <h3>{{ criterion.name }}</h3>
+      {% for statement in criterion.statements %}
+      <label>{{ statement.text }}</label>
+      {% for option in criterion_options %}
+      <input id="{{option.id}}" type="radio" name="{{statement.id}}" value="{{option.value}}"
+      data-lecturer_id="{{course.lecturer.id}}" data-criterion_id="{{criterion.id}}"
+      data-student_id="{{student.id}}" data-semester_id="{{student.semester.id}}"
+      data-level_id="{{ student.level.id }}" data-course_id="{{ course.id }}"
+      data-year="{{ year }}">
+      {% endfor %}
+      {% endfor %}
+      {% endfor %}
+    </form>
+    
+    <form class="general-statement">
+      <h2>For each of these statements select the best option.</h2>
+      {% for statement in general_statements %}
+      <label>{{ statement.text}}</label>
+      {% for option in statement.options %}
+      <input id="{{ option.id }}" type="radio" name="{{ statement.id }}" value="{{ option.value }}"
+       data-general_statement_id="{{ statement.id }}" data-general_statement_option_id="{{ option.id }}"
+       data-student_id="{{ student.id }}" data-lecturer_id="{{ course.lecturer.id }}"
+       data-year="{{ year }}" data-semester_id="{{ student.semester.id }}" data-course_id="{{ course.id }}"
+       data-level_id="{{ student.level.id }}" data-general_statement_option_value="{{ option.value }}">
+      {% endfor %}
+      {% endfor %}
+    </form>
+
+    <form class="general-question">
+      <h2>Answer these open ended questions </h2>
+      {% for question in general_questions %}
+      <label>{{ question.text }}</label>
+      <input type="text" data-student_id="{{ student.id }}" data-lecturer-id="{{ course.lecturer.id }}"
+       data-course_id="{{ course.id }}" data-year="{{ year }}" data-semester_id="{{ student.semester.id }}"
+       data-level_id="{{ student.level.id }}">
+      {% endfor %}
+    </form>
+    
+    <button>Evaluate</button>
+
+  </body>
+</html>
