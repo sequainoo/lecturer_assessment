@@ -1,0 +1,10 @@
+<ul class="data">
+  <h2 class="data__header">Lecturers</h2>
+  {% for lecturer in lecturers %}
+  <li class="data__item">
+    <a class="data__item__link" href="/admin/lecturers/{{lecturer.id}}">
+      {{ lecturer.name }}
+    </a> 
+    <a class="delete" href="/admin/lecturers/{{lecturer.id}}" >DELETE</a></li>
+  {% endfor %}
+</ul>

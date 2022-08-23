@@ -1,0 +1,124 @@
+== Info:   Trying 127.0.0.1:5000...
+== Info: TCP_NODELAY set
+== Info: Connected to localhost (127.0.0.1) port 5000 (#0)
+=> Send header, 243 bytes (0xf3)
+0000: POST /evaluate/63ce8446-6bb1-4c0c-b119-8d326b87cd69?token=c150a8
+0040: 28-f1f8-4c86-b480-7ea880e37652 HTTP/1.1
+0069: Host: localhost:5000
+007f: User-Agent: curl/7.68.0
+0098: Accept: */*
+00a5: Content-Type: application/json
+00c5: Content-Length: 5349
+00db: Expect: 100-continue
+00f1: 
+== Info: Mark bundle as not supporting multiuse
+<= Recv header, 23 bytes (0x17)
+0000: HTTP/1.1 100 Continue
+== Info: Mark bundle as not supporting multiuse
+<= Recv header, 23 bytes (0x17)
+0000: HTTP/1.1 100 Continue
+=> Send data, 5349 bytes (0x14e5)
+0000: {"criteriaDatasets":[{"criterion_id":"a68e141d-9325-4cdd-b6d2-37
+0040: 0c936dc707","statement_id":"bcece349-fb02-4958-a1ed-b7b8c3776985
+0080: ","criterion_option_id":"5","lecturer_id":"6ad5d3c1-3f67-431a-b2
+00c0: 92-b0f83c30ce43","course_id":"63ce8446-6bb1-4c0c-b119-8d326b87cd
+0100: 69","student_id":"c150a828-f1f8-4c86-b480-7ea880e37652","semeste
+0140: r_id":"1","level_id":"100"},{"criterion_id":"a68e141d-9325-4cdd-
+0180: b6d2-370c936dc707","statement_id":"a6f9dd28-5659-449f-b596-c4ecc
+01c0: 0816c9c","criterion_option_id":"5","lecturer_id":"6ad5d3c1-3f67-
+0200: 431a-b292-b0f83c30ce43","course_id":"63ce8446-6bb1-4c0c-b119-8d3
+0240: 26b87cd69","student_id":"c150a828-f1f8-4c86-b480-7ea880e37652","
+0280: semester_id":"1","level_id":"100"},{"criterion_id":"a68e141d-932
+02c0: 5-4cdd-b6d2-370c936dc707","statement_id":"4e27bb26-f0ab-4bb0-b5b
+0300: 1-a057d085d7ad","criterion_option_id":"5","lecturer_id":"6ad5d3c
+0340: 1-3f67-431a-b292-b0f83c30ce43","course_id":"63ce8446-6bb1-4c0c-b
+0380: 119-8d326b87cd69","student_id":"c150a828-f1f8-4c86-b480-7ea880e3
+03c0: 7652","semester_id":"1","level_id":"100"},{"criterion_id":"b977a
+0400: 33f-94d7-44b4-ad40-e9246f6650b8","statement_id":"8999e91d-3fa6-4
+0440: 0b3-a39f-b29b7f5c6dc1","criterion_option_id":"5","lecturer_id":"
+0480: 6ad5d3c1-3f67-431a-b292-b0f83c30ce43","course_id":"63ce8446-6bb1
+04c0: -4c0c-b119-8d326b87cd69","student_id":"c150a828-f1f8-4c86-b480-7
+0500: ea880e37652","semester_id":"1","level_id":"100"},{"criterion_id"
+0540: :"b977a33f-94d7-44b4-ad40-e9246f6650b8","statement_id":"86de296c
+0580: -a5a5-458e-b597-d944ccb2c779","criterion_option_id":"5","lecture
+05c0: r_id":"6ad5d3c1-3f67-431a-b292-b0f83c30ce43","course_id":"63ce84
+0600: 46-6bb1-4c0c-b119-8d326b87cd69","student_id":"c150a828-f1f8-4c86
+0640: -b480-7ea880e37652","semester_id":"1","level_id":"100"},{"criter
+0680: ion_id":"b977a33f-94d7-44b4-ad40-e9246f6650b8","statement_id":"4
+06c0: a5cb0e6-4e58-4665-b4ae-7efddf218e2e","criterion_option_id":"4","
+0700: lecturer_id":"6ad5d3c1-3f67-431a-b292-b0f83c30ce43","course_id":
+0740: "63ce8446-6bb1-4c0c-b119-8d326b87cd69","student_id":"c150a828-f1
+0780: f8-4c86-b480-7ea880e37652","semester_id":"1","level_id":"100"},{
+07c0: "criterion_id":"b977a33f-94d7-44b4-ad40-e9246f6650b8","statement
+0800: _id":"4c23e1cc-5b53-493c-9cce-9232fea10dd5","criterion_option_id
+0840: ":"4","lecturer_id":"6ad5d3c1-3f67-431a-b292-b0f83c30ce43","cour
+0880: se_id":"63ce8446-6bb1-4c0c-b119-8d326b87cd69","student_id":"c150
+08c0: a828-f1f8-4c86-b480-7ea880e37652","semester_id":"1","level_id":"
+0900: 100"},{"criterion_id":"b977a33f-94d7-44b4-ad40-e9246f6650b8","st
+0940: atement_id":"8bb6ead3-3f67-46ab-9fc0-b7f82ed778a3","criterion_op
+0980: tion_id":"2","lecturer_id":"6ad5d3c1-3f67-431a-b292-b0f83c30ce43
+09c0: ","course_id":"63ce8446-6bb1-4c0c-b119-8d326b87cd69","student_id
+0a00: ":"c150a828-f1f8-4c86-b480-7ea880e37652","semester_id":"1","leve
+0a40: l_id":"100"},{"criterion_id":"b977a33f-94d7-44b4-ad40-e9246f6650
+0a80: b8","statement_id":"ad7398f2-2cfc-436c-afc3-ac47551c4f55","crite
+0ac0: rion_option_id":"1","lecturer_id":"6ad5d3c1-3f67-431a-b292-b0f83
+0b00: c30ce43","course_id":"63ce8446-6bb1-4c0c-b119-8d326b87cd69","stu
+0b40: dent_id":"c150a828-f1f8-4c86-b480-7ea880e37652","semester_id":"1
+0b80: ","level_id":"100"},{"criterion_id":"78b51ead-f361-4bd8-beb4-a53
+0bc0: f5fe028d0","statement_id":"87f32063-a538-413b-85d4-88729793215b"
+0c00: ,"criterion_option_id":"5","lecturer_id":"6ad5d3c1-3f67-431a-b29
+0c40: 2-b0f83c30ce43","course_id":"63ce8446-6bb1-4c0c-b119-8d326b87cd6
+0c80: 9","student_id":"c150a828-f1f8-4c86-b480-7ea880e37652","semester
+0cc0: _id":"1","level_id":"100"},{"criterion_id":"78b51ead-f361-4bd8-b
+0d00: eb4-a53f5fe028d0","statement_id":"abfb2fb7-2d59-4ed7-a429-ed84ba
+0d40: 8c6e89","criterion_option_id":"5","lecturer_id":"6ad5d3c1-3f67-4
+0d80: 31a-b292-b0f83c30ce43","course_id":"63ce8446-6bb1-4c0c-b119-8d32
+0dc0: 6b87cd69","student_id":"c150a828-f1f8-4c86-b480-7ea880e37652","s
+0e00: emester_id":"1","level_id":"100"},{"criterion_id":"78b51ead-f361
+0e40: -4bd8-beb4-a53f5fe028d0","statement_id":"0e1e343e-e51b-4566-8ed2
+0e80: -a076d2ddcb3c","criterion_option_id":"4","lecturer_id":"6ad5d3c1
+0ec0: -3f67-431a-b292-b0f83c30ce43","course_id":"63ce8446-6bb1-4c0c-b1
+0f00: 19-8d326b87cd69","student_id":"c150a828-f1f8-4c86-b480-7ea880e37
+0f40: 652","semester_id":"1","level_id":"100"},{"criterion_id":"78b51e
+0f80: ad-f361-4bd8-beb4-a53f5fe028d0","statement_id":"c5020210-db85-4b
+0fc0: 48-b09e-046ca72f216b","criterion_option_id":"2","lecturer_id":"6
+1000: ad5d3c1-3f67-431a-b292-b0f83c30ce43","course_id":"63ce8446-6bb1-
+1040: 4c0c-b119-8d326b87cd69","student_id":"c150a828-f1f8-4c86-b480-7e
+1080: a880e37652","semester_id":"1","level_id":"100"}],"statementsData
+10c0: sets":[{"general_statement_id":"31a59efd-174a-46c0-8a34-06f5df3a
+1100: a0fa","general_statement_option_id":"76b967bb-dbed-4f0e-93e3-b30
+1140: 615cc49a2","student_id":"c150a828-f1f8-4c86-b480-7ea880e37652","
+1180: lecturer_id":"6ad5d3c1-3f67-431a-b292-b0f83c30ce43","year":"2022
+11c0: ","semester_id":"1","course_id":"63ce8446-6bb1-4c0c-b119-8d326b8
+1200: 7cd69","level_id":"100","general_statement_option_value":"1"},{"
+1240: general_statement_id":"5f5fd755-f191-445f-816c-52529cb32836","ge
+1280: neral_statement_option_id":"81689dc7-2e2d-4f12-a921-a554e232d45b
+12c0: ","student_id":"c150a828-f1f8-4c86-b480-7ea880e37652","lecturer_
+1300: id":"6ad5d3c1-3f67-431a-b292-b0f83c30ce43","year":"2022","semest
+1340: er_id":"1","course_id":"63ce8446-6bb1-4c0c-b119-8d326b87cd69","l
+1380: evel_id":"100","general_statement_option_value":"4"}],"answersDa
+13c0: tasets":[{"student_id":"c150a828-f1f8-4c86-b480-7ea880e37652","l
+1400: ecturer_id":"6ad5d3c1-3f67-431a-b292-b0f83c30ce43","course_id":"
+1440: 63ce8446-6bb1-4c0c-b119-8d326b87cd69","year":"2022","semester_id
+1480: ":"1","level_id":"100","general_question_id":"8a1100a8-a1aa-457c
+14c0: -9dbd-d9fae2dca57f","answer":"any"}]}
+== Info: We are completely uploaded and fine
+== Info: Mark bundle as not supporting multiuse
+<= Recv header, 17 bytes (0x11)
+0000: HTTP/1.1 200 OK
+<= Recv header, 38 bytes (0x26)
+0000: Server: Werkzeug/2.2.1 Python/3.8.10
+<= Recv header, 37 bytes (0x25)
+0000: Date: Fri, 19 Aug 2022 07:45:23 GMT
+<= Recv header, 32 bytes (0x20)
+0000: Content-Type: application/json
+<= Recv header, 20 bytes (0x14)
+0000: Content-Length: 91
+<= Recv header, 19 bytes (0x13)
+0000: Connection: close
+<= Recv header, 2 bytes (0x2)
+0000: 
+<= Recv data, 91 bytes (0x5b)
+0000: {.  "success": "evaluated", .  "url": "/home?token=c150a828-f1f8
+0040: -4c86-b480-7ea880e37652".}.
+== Info: Closing connection 0

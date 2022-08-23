@@ -1,0 +1,79 @@
+.evaluation-content {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  font-family: Helvetica, Arial, sans-serif;
+}
+.evaluation-content .back {
+  margin: auto auto auto 10px;
+  display: inline-block;
+  width: 70px;
+  text-align: center;
+}
+.back {
+  box-shadow: 0 0 4px 1px #333;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #333;
+}
+.heading {
+    font-size: 20px;
+    font-weight: 900;
+    margin: auto;
+}
+.overall-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.criterion-evaluations {
+    margin: 30px auto;
+}
+.criterion-evaluations h3 {
+    margin: 10px auto;
+    text-align: center;
+}
+article {
+    margin: 20px auto;
+}
+
+article .title, p.statement {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+p.statement {
+    margin: 5px auto;
+}
+.title__text, .statement__text {
+    flex: 1 0 45%;
+}
+.avg-option {
+    flex: 1 0 30%;
+}
+.avg-rating {
+    flex: 1 0 10%;
+}
+
+/* uncategorized */
+.general-statement-evaluations {
+    /* width: 80%; */
+    margin: 30px auto;
+}
+.general-statement-evaluations h3 {
+    margin: 10px auto;
+    text-align: center;
+}
+
+ul.options, ul.answers {
+    font-size: 13px;
+    list-style-type: disc;
+    padding: 3px 20px;
+    box-shadow: 0px 0px 2px 0.5px #222;
+    background-color: #d5d5d5;
+}

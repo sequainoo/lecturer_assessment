@@ -15,12 +15,17 @@ class GeneralQuestionEvaluation(Base):
     answer = ''
 
     def __init__(self, **kwargs):
-        if 'lecturer_id' not in kwargs\
-            or 'course_id' not in kwargs\
-            or 'answer' not in kwargs\
-            or 'general_question_id' not in kwargs\
-            or 'student_id' not in kwargs\
-            or 'semester_id' not in kwargs:
+        if 'lecturer_id' not in kwargs:
+            raise AttributeError('lecturer_id, required attrs is not provided')
+        if 'course_id' not in kwargs:
+            raise AttributeError('course_id, required attrs not provided')
+        if 'answer' not in kwargs:
+            raise AttributeError('answer, required attrs not provided')
+        if 'general_question_id' not in kwargs:
+            raise AttributeError('general_question_id, required attrs not provided')
+        if 'student_id' not in kwargs:
+            raise AttributeError('student_id, required attrs not provided')
+        if 'semester_id' not in kwargs:
             raise AttributeError('required attrs not provided')
         if type(kwargs['lecturer_id']) is not str\
             or type(kwargs['course_id']) is not str\

@@ -1,28 +1,174 @@
-<!doctype html>
-<html lang="en">
-  <head></head>
-  <body>
-    <ul>
-      <li><a href="/home">site</a></li>
-      <li><a href="/">Add Program</a></li>
-      <li><a href="/home">Add Course</a></li>
-      <li><a href="/admin/evaluation-creation-form">Add Evaluation</a></li>
-      <li><a href="">site</a></li>
-      <li><a href="/">site</a></li>
-      <li><a href="/home"></a></li>
-      <li><a href="/home">site</a></li>
-      <li><a href="/home">site</a></li>
-      <li><a href="/home">site</a></li>
-    </ul>
-    
-    <section class="proram-form-container">
-      <h2>Create Statement not criterialized Section</h2>
-      <form action="/admin/courses" method="POST" class="general-statement">
-	<label>Statement:</label>
-	<input name="text">
-        <input type="submit" value="Create">
-      </form>
-    </section>
+{% extends 'admin/base.html' %}
+{% block head %}
+<link href="/static/styles/admin/admin_page.css" rel="stylesheet" type="text/css">
+<link href="/static/styles/admin/lecturer_evaluations.css" rel="stylesheet" type="text/css">
+<script src="/static/js/admin/functions.js"></script>
+<script src="/static/js/admin/admin_page.js"></script>
+{% endblock %}
 
-  </body>
-</html>
+{% block body %}
+
+<nav class="nav">
+  <a class="nav__btn" href="/home">site</a>
+  <a class="nav__btn" href="/admin/evaluation-statements-creation-form">Add Evaluation</a>
+  <a class="nav__btn show-btn" href="/admin/programs">Programs</a>
+  <a class="nav__btn show-btn" href="/admin/courses">Courses</a>
+  <a class="nav__btn show-btn" href="/admin/lecturers">Lecturers</a>
+  <a class="nav__btn show-btn" href="/admin/students">Students</a>
+</nav>
+
+<h1>Control Panel</h1>
+
+{% if get_flashed_messages()[0] %}
+<div class="flashed-message">
+{{ get_flashed_messages()[0] }}
+</div>
+{% endif %}
+
+<div class="main">
+  <!-- Program registration form -->
+  <form action="/admin/programs" method="POST" class="">
+    <h2>Add a program</h2>
+    <label for="program-name">Name:</label>
+    <input id="program-name" name="name">
+    <input type="submit" value="Add Program">
+  </form>
+    
+  <!-- Add Level form-->
+  <form action="/admin/levels" method="POST" class="">
+    <h2>Add a Level</h2>
+    <label>Level:</label>
+    <input name="level">
+    <input type="submit" value="Add Level">
+  </form>
+  
+  <!-- Add a Semeter form-->
+  <form action="/admin/semesters" method="POST" class="">
+    <h2>Add a Semester</h2>
+    <label>Semester:</label>
+    <input name="semester">
+    <input type="submit" value="Add Semester">
+  </form>
+
+  <!-- lecturer registration form -->
+  <form action="/admin/lecturers" method="POST" class="">
+    <h2>Add a Lecturer</h2>
+    <label for="lecturer-name">Name:</label>
+    <input id="lecturer-name" name="name">
+    <input type="submit" value="Add Lecturer">
+  </form>
+
+  <!-- Course creation form-->
+  <form action="/admin/courses" method="POST" class="">
+    <h2>Add a Course</h2>
+    <label for="course-name">Name:</label>
+    <input id="course-name" name="name">
+    <label for="course-code">Course Code:</label>
+    <input id="course-code" name="course_code">
+    <input type="submit" value="Add Program">
+  </form>
+    
+  <!-- Add lecturer to a course form -->
+  <form action="/admin/lecturer-course" method="POST" class="">
+    <h2>Associate Course and Lecturer</h2>
+  
+    <label>Course: </label>
+    <select name="course_id">
+      {% for course in courses %}
+      {% if not course.lecturer %}
+      <option value="{{ course.id }}">{{ course.name }}</option>
+      {% endif %}
+      {% endfor %}
+    </select>
+  
+    <label>Lecturer: </label>
+    <select name="lecturer_id">
+      {% for lecturer in lecturers %}
+      <option value="{{ lecturer.id }}">{{ lecturer.name }}</option>
+      {% endfor %}
+    </select>
+  
+    <input type="submit" value="Associate">
+  </form>
+
+  <!-- Add course to program form -->
+  <form action="/admin/program-course" method="POST" class="">
+    <h2>Add a Course to Program</h2>
+  
+    <label for="">Select Program: </label>
+    <select name="program_id" id="">
+      {% for program in programs %}
+      <option value="{{ program.id }}">{{ program.name }}</option>
+      {% endfor %}
+    </select>
+  
+    <label>Course: </label>
+    <select name="course_id">
+      {% for course in courses %}
+      <option value="{{ course.id }}">{{ course.name }}</option>
+      {% endfor %}
+    </select>
+  
+    <label>Level: </label>
+    <select name="level_id">
+      {% for level in levels %}
+      <option value="{{ level.id }}">{{ level.level }}</option>
+      {% endfor %}
+    </select>
+  
+    <label>Semester: </label>
+    <select name="semester_id">
+      {% for semester in semesters %}
+      <option value="{{ semester.id }}">{{ semester.semester }}</option>
+      {% endfor %}
+    </select>
+  
+    <input type="submit" value="Add">
+  </form>
+
+  <!-- student registeration form -->
+  <form action="/admin/students" method="POST" class="">
+    <h2>Register a Student</h2>
+    
+    <label for="student-firstname">First Name: </label>
+    <input id="student-firstname" name="first_name">
+    
+    <label for="student-lastname">Last Name: </label>
+    <input id="student-lastname" name="last_name">
+    
+    <label for="student-email">Email: </label>
+    <input id="student-email" name="email">
+  
+    <label for="student-password">Password:</label>
+    <input id="student-password" name="password" type="password">
+  
+    <label for="student-level">Level: </label>
+    <select name="level_id" id="student-level">
+      {% for level in levels %}
+      <option value="{{ level.id }}">{{ level.level }}</option>
+      {% endfor %}
+    </select>
+  
+    <label for="student-semester">Semester</label>
+    <select name="semester_id" id="student-semester">
+      {% for semester in semesters %}
+      <option value="{{ semester.id }}">{{ semester.semester }}</option>
+      {% endfor %}
+    </select>
+  
+    <label for="student-program">Program: </label>
+    <select name="program_id" id="student-program">
+      {% for program in programs %}
+      <option value="{{ program.id }}">{{ program.name }}</option>
+      {% endfor %}
+    </select>
+  
+    <input type="submit" value="Register Student">
+  </form>
+</div>
+
+<!-- hidden page to show all ajax requested html -->
+<div class="ajax-block hide">
+  <div class="ajax-block__content"></div>
+</div>
+{% endblock %}

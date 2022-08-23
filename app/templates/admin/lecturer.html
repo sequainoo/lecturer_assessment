@@ -1,0 +1,17 @@
+<a class="back" href="/admin/lecturers">Back</a>
+
+<ul class="data">
+  <h2 class="data__header">{{ lecturer.name }}</h2>
+  <h3 class="data__subheader">courses</h3>
+  {% for course in lecturer.courses %}
+  <li class="data__item">
+    <span class="data__item__name" >{{ course.name }}</span>
+    <a class="data__item__link" href="/admin/lecturers/{{ lecturer.id }}/courses/{{ course.id }}/evaluations">
+      see evaluations
+    </a>
+    <a class="delete" href="/admin/lecturers/{{ lecturer.id }}/courses/{{ course.id }}">
+      delete from lecturer
+    </a>
+  </li>
+  {% endfor %}
+</ul>

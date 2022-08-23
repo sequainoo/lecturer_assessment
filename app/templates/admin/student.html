@@ -1,0 +1,23 @@
+<a class="back" href="/admin/programs">Back</a>
+
+<ul class="data">
+  <h2 class="data__header">{{ program.name }}</h2>
+  <li class="data__item">
+    <span>course</span> 
+    <span>Level</span> 
+    <span>semester</span>
+    <span></span>
+  </li>
+  {% for course in courses %}
+  <li class="data__item">
+    <a class="data__item__link" href="/admin/programs/{{ course[0].id }}">
+      {{ course[0].name }}
+    </a>
+    <span>{{ course[1].level }}</span>
+    <span>{{ course[2].semester }}</span>
+    <a class="delete" href="/admin/programs/{{program.id}}/courses/{{ course[0].id}}" >
+      Delete from Program
+    </a>
+  </li>
+  {% endfor %}
+</ul>

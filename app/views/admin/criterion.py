@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-from flask import request, flash, render_template, url_for, redirect
+from flask import (request, flash, render_template, url_for, redirect, abort,
+                   jsonify)
 
 from app.app import app
-from models import storage, Program
+from models import storage, CriterionOption, Criterion, CriterionStatement
 
 
-@app.route('/admin/programs', methods=['POST'])
-def create_program():
+@app.route('/admin/criterion-options', methods=['POST'])
+def create_criterion_option():
     """Creates an option for criterion evaluation statements"""
-    :text = request.form.get('text', None)
+    text = request.form.get('text', None)
     value = request.form.get('value', None)
 
     if not text or not value:
@@ -28,6 +29,17 @@ def create_program():
     return redirect(url_for('get_evaluation_statements_creation_form'))
 
 
+@app.route('/admin/criterion-options/<id_>', methods=['DELETE'])
+def delete_criterion_option(id_):
+    obj = storage.get('CriterionOption', id_)
+    if not obj:
+        print('******************not found**************')
+    if obj:
+        storage.remove(obj)
+    url = url_for('get_evaluation_statements_creation_form')
+    return jsonify({'url': url}), 200
+
+
 @app.route('/admin/criteria', methods=['POST'])
 def create_criterion():
     """creates a criterion"""
@@ -41,6 +53,19 @@ def create_criterion():
     storage.save()
     flash('successfully created the criterion')
     return redirect(url_for('get_evaluation_statements_creation_form'))
+
+
+@app.route('/admin/criteria/<id_>', methods=['DELETE'])
+def delete_criterion(id_):
+    obj = storage.get('Criterion', id_)
+    if obj:
+        for statement in obj.statements:
+            storage.remove(statement)
+        storage.remove(obj)
+        storage.save()
+    flash('Successfully Deleted')
+    url = url_for('get_evaluation_statements_creation_form')
+    return jsonify({'url': url}), 200
 
 
 @app.route('/admin/criterion-statements', methods=['POST'])
@@ -62,3 +87,13 @@ def create_criterion_statement():
     storage.save()
     flash("Successful")
     return redirect(url_for('get_evaluation_statements_creation_form'))
+
+
+@app.route('/admin/criterion-statements/<id_>', methods=['DELETE'])
+def delete_criterion_statement(id_):
+    obj = storage.get('CriterionStatement', id_)
+    if obj:
+        storage.remove(obj)
+        storage.save()
+    url = url_for('get_evaluation_statements_creation_form')
+    return jsonify({'url': url}), 200

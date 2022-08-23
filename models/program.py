@@ -17,7 +17,7 @@ class Program(Base):
 
     def get_courses(self, **kwargs):
         """Returns a list of courses under this program.
-        search in program courses for courses whose program id is
+        search in ProgramCourses for courses whose program id is
         this programs id
         [(course_obj, level_obj, semester_obj)...]
         """
@@ -46,3 +46,16 @@ class Program(Base):
                                        program_id=self.id,
                                        level_id=level.id,
                                        semester_id=semester.id)
+        storage.add(program_course)
+        storage.save()
+
+    def remove_course(self, course):
+        """removes course association from the program"""
+        program_courses = storage.filter('ProgramCourse',
+                                        program_id=self.id,
+                                        course_id=course.id)
+        # this is supposed to return a list of one element but incase there
+        # are multiple then remove them all.
+        for program_course in program_courses:
+            storage.remove(program_course)
+        storage.save()

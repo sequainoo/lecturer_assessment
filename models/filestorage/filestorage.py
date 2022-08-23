@@ -64,6 +64,7 @@ class Storage:
         if classname not in classes:
             raise TypeError('Wrong type!')
         Storage.__store[classname].pop(obj.id, None)
+        self.save()
         
     def save(self):
         dict_representation = {}

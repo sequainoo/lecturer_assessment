@@ -9,7 +9,7 @@ class Semester(Base):
         if 'semester' not in kwargs:
             raise AttributeError('semester attr missing')
         if type(kwargs['semester']) is not int:
-            raise TypeError('semester attr must be an int')
+            kwargs['semester'] = int(kwargs['semester'])
         if kwargs['semester'] < 1 or kwargs['semester'] > 2:
             raise ValueError('semester attr must be 1 or 2')
         self.semester = kwargs['semester']

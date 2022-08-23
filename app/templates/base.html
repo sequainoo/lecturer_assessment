@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/static/styles/base.css">
+    <script src="/static/js/jquery.js"></script>
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body class="flex-column color-default bg-color-standard">
+    <header class="header flex-column">
+      <nav class="header__nav content-center-vertical-row content-align-right-row bg-color-opposite color-opposite">
+        <span class="welcome font-size-below-normal">
+	        <span class="welcome__text color-opposite-deep">Welcome,</span> 
+	        <span class="">{{student.first_name}}</span>
+	      </span>
+        <a href="/logout?token={{ token }}" class="logout font-size-below-normal ">
+	        logout
+	      </a>
+      </nav>
+
+      <h1 class="header__title font-size-heading-4">
+        {% block title %}
+	  
+        {% endblock %}
+      </h1>
+      <span class="underline underline-big"></span>
+      <span class="underline underline-small"></span>
+    </header>
+
+    <!--                           content                           -->
+
+    <section class="content">
+    {% block content %}
+    {% endblock %}
+    </section>
+    <footer class="footer text-center content-center"><span class="footer__text">Copyright&copy;</span><footer>
+  </body>
+</html>

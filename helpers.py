@@ -33,3 +33,8 @@ def login_expired(token):
 
 def session_expiry_update(token):
     session[token]['exp'] = datetime.utcnow() + timedelta(minutes=30)
+
+
+def logout_of_session(token):
+    if token in session:
+        del session[token]

@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+}
+.main {
+  flex: 1 1 65%;
+}
+.aside {
+  padding: 10px;
+  flex: 1 1 30%;
+}
+.criteria, .general-statements {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+h2 {
+  margin: 25px auto auto;
+  text-align: center;
+}
+.created-options {
+  list-style-type: none;
+  display: flex;
+  flex-flow: column;
+}
+.created-options div {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+}
+.created-options div li {
+  flex: 1 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  /* text-align: center; */
+}
+.created-options .delete {
+  width: 80%;
+}
+.delete {
+  /* padding: 5px; */
+  /* box-shadow: 0px 0px 2px 1px rgba(170, 0, 0, 0.665); */
+  text-align: center;
+  color: rgba(170, 0, 0, 0.665);
+  /* background-color: rgba(178, 5, 5, 0.526); */
+}
+.delete:hover {cursor: pointer;}
+.section {
+  margin: 20px auto;
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.section form {
+  box-shadow: 0 0 2px 1px #444;
+  flex: 1 0 30%;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  gap: 5px;
+}
+
+.aside section {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+.aside div {
+  display: flex;
+  flex-flow: row wrap;
+}
+.aside div h3, .aside div p {
+  flex: 1 1 65%;
+}
+.aside div a {
+  flex: 1 1 60px;
+}
+div.category-statement {
+  margin-top: 10px;
+}
+.category-head {margin-top: 10px;}
+@media (max-width: 560) {
+  .section form {
+    flex: 1 0 50%;
+  }
+}

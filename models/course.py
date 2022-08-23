@@ -7,7 +7,7 @@ from models import Base, storage
 
 class Course(Base):
     name = ''
-    course_code = ''
+    code = ''
 
     def __init__(self, **kwargs):
         if 'name' not in kwargs:
@@ -21,5 +21,7 @@ class Course(Base):
         """return the associated lecturer of a course"""
         lecturer_course = storage.filter('LecturerCourse',
                                          course_id=self.id)
-        lecturer_id = lecturer_course[0].lecturer_id
+        lecturer_id = ''
+        if lecturer_course:
+            lecturer_id = lecturer_course[0].lecturer_id
         return storage.get('Lecturer', lecturer_id)

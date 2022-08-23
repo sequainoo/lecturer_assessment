@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang="en">
-  <head></head>
-  <body>
-    <h1>Login</h1>
+  <head>
+    <link rel="stylesheet" href="/static/styles/base.css">
+    <link rel="stylesheet" href="/static/styles/login.css">
+  </head>
+  <body class="flex-column content-center-vertical">
     {% for message in get_flashed_messages() %}
     <div class="flashed_message">{{ message }}</div>
     {% endfor %}
-    <form action="login" method="POST">
+    <form class="card font-size-normal flex-column content-center-horizontal-col" action="login" method="POST">
+    <h1 class="card__title text-center color-opposite">Login</h1>
       <label for='email'>Email</label>
       <input id="email" type="email" name="email">
 
-      <label for="password"></label>
+      <label for="password">Password</label>
       <input id="password" type="password" name="password">
 
-      <input id="submit" type="submit" value="submit">
+      <input class="color-default font-size-normal" id="submit" type="submit" value="Login">
     </form>
   </body>
 </html>

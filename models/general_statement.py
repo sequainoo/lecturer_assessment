@@ -19,4 +19,4 @@ class GeneralStatement(Base):
     @property
     def options(self):
         """returns the answers or various options for each statement"""
-        return storage.filter('StatementOption', general_statement_id=self.id)
+        return storage.filter('GeneralStatementOption', general_statement_id=self.id)

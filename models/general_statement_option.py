@@ -4,7 +4,7 @@ from models import Base
 
 class GeneralStatementOption(Base):
     text = ''
-    value = ''
+    value = 0
     general_statement_id = 0
 
     def __init__(self, **kwargs):
@@ -14,4 +14,5 @@ class GeneralStatementOption(Base):
         if type(kwargs['text']) is not str\
             or type(kwargs['general_statement_id']) is not str:
             raise TypeError('Wrong type of values')
+        kwargs['value'] = int(kwargs['value'])
         super().__init__(**kwargs)

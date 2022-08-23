@@ -12,7 +12,7 @@ from models.general_question_evaluation import GeneralQuestionEvaluation
 from models.student_evaluated_course import StudentEvaluatedCourse
 #from models.student import Student
 #from models.lecturer import Lecturer
-from models.program_course import ProgramCourse
+#from models.program_course import ProgramCourse
 #from models.lecturer_course import LecturerCourse
 #from models.course import Course
 from models.level import Level
@@ -32,13 +32,14 @@ classes = {#Criterion.__name__: Criterion,
            GeneralQuestionEvaluation.__name__: GeneralQuestionEvaluation,
            StudentEvaluatedCourse.__name__: StudentEvaluatedCourse,
            #Student.__name__: Student, Lecturer.__name__: Lecturer,
-           ProgramCourse.__name__: ProgramCourse,
+           #ProgramCourse.__name__: ProgramCourse,
            #LecturerCourse.__name__: LecturerCourse,
            #Course.__name__: Course, Program.__name__: Program,
            Level.__name__: Level, Semester.__name__: Semester}
 
 from models.filestorage.filestorage import Storage
 storage = Storage()
+from models.program_course import ProgramCourse
 from models.criterion import Criterion
 from models.criterion_statement import CriterionStatement
 from models.general_statement import GeneralStatement
@@ -58,4 +59,5 @@ classes[GeneralQuestion.__name__] = GeneralQuestion
 classes[GeneralStatement.__name__] = GeneralStatement
 classes[Criterion.__name__] = Criterion
 classes[CriterionStatement.__name__] = CriterionStatement
+classes[ProgramCourse.__name__] = ProgramCourse
 storage.reload()

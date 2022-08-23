@@ -1,0 +1,256 @@
+/** reset default styles */
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+/**
+ * body */
+body {
+  min-height: 100vh;
+  font-family: "Lucida Console", Monospace;
+}
+
+/**
+ * style the header */
+.header {
+  flex: 0 0 30vh;
+  margin-bottom: 15px;  
+}
+
+/** header__nav */
+.header__nav {
+  margin-top: 0px;
+  flex: 0 0 30%;
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  box-shadow: 0px 2px 5px 2px #000;
+}
+
+/**
+ *  welcome text on nav */
+.welcome {
+  margin-right: 5%;
+}
+
+/** logout link on nav */
+.logout {
+  color: #ddd;
+  padding: 5px 10px;
+  box-shadow: 0px 0px 2px 2px rgba(196, 188, 188, 0.4);
+  text-decoration: none; 
+}
+.logout:visited {
+  color: #ddd;
+}
+
+/**
+ *  header__title */
+.header__title { 
+  margin: auto;
+  padding: 15px;
+  margin-bottom: 0px;
+}
+.underline {
+  content: '';
+  height: 2px;
+  background-color: #333;
+  /*width: 90px;*/
+  margin: 0px auto auto;
+}
+.underline-big {width: 90px;}
+.underline-small {width: 30px;}
+
+/**
+ * footer */
+.footer {
+  flex: 0 0 10vh;
+  border-top: 1px solid #ccc;
+}
+
+
+/*                         reusable componenets                        */
+/** 
+ * flex-row */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+/**
+ *  flex-row-wrap */
+.flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/**
+ * flex-column */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+ * flex-column-wrap */
+.flex-column-wrap {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+/** 
+ * content-center
+ */
+.content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/**
+ * content-center-row:
+   diff with no row is
+   items are layed out
+   as rows in center */
+ .content-center-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/** 
+ * content-center-vertical */
+.content-center-vertical {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+/** 
+ * content-center-vertical-row */
+.content-center-vertical-row {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+/** 
+ * content-center-horizontal-col */
+.content-center-horizontal-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/** 
+ * align-content-left-row */
+.content-align-left-row {
+  justify-content: flex-start;
+}
+
+/** 
+ * align-content-right-row */
+.content-align-right-row {
+  justify-content: flex-end;
+}
+
+/** 
+ * align-content-left-col */
+.content-align-left-col {
+  align-items: flex-start;
+}
+
+/** 
+ * align-content-right-col */
+.content-align-right-col {
+  align-items: flex-end;
+}
+
+/** 
+ * content-space-between-row */
+.content-space-between-row {
+  justify-content: space-between;
+}
+
+/** 
+ * content-space-around-row */
+.content-space-around-row {
+  justify-content: space-around;
+}
+
+/** 
+ * content-align-top-col */
+.content-align-top-col {
+  justify-content: flex-start;
+}
+
+.gap {
+  gap: 10%;
+}
+
+/** 
+ * align text center */
+.text-center {
+  text-align: center;
+}
+
+/**
+ * align text left */
+.text-left {
+  text-align: left;
+}
+
+/************************* font sizes *****************************/
+.font-size-normal {font-size: 20px;}
+.font-size-above-normal {font-size: 22px;}
+.font-size-below-normal {font-size: 18px;}
+.font-size-small {font-size: 16px;}
+.font-size-heading-1 {font-size: 30px;}
+.font-size-heading-2 {font-size: 28px;}
+.font-size-heading-3 {font-size: 26px;}
+.font-size-heading-4 {font-size: 24px;}
+.font-size-heading-5 {font-size: 23px;}
+.font-bold {font-weight: bold;}
+
+/*********************** colors ********************************/
+.color-default {color: #333;}
+.color-default-light {color: #544;}
+.color-opposite {color: #ccc;}
+.color-opposite-deep {color: #eee;}
+.color-default-deep {color: #111;}
+.bg-color-standard {background-color: #f9f5f5d3;}
+.bg-color-opposite {background-color: #333;}
+.bg-color-opposite-light {color: #444;}
+
+/** 
+ * card */
+.card {
+  display: flex;
+  flex-flow: column;
+  box-shadow: 0px 0px 10px 0px #333;
+  border-radius: 5px;
+  min-height: 50vh;
+  background-color: #fff;
+}
+.card__title { 
+  text-align: center;
+  background-color: #333;
+  padding: 50px;
+  margin-bottom: 20px;
+}
+.card__item {
+  /*flex: 1 0;*/
+  padding: 5px 20px;
+  width: 100%;
+  list-style-type: none;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #ddd;
+  gap: 2%;
+}

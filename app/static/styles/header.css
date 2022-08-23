@@ -1,0 +1,47 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2rem;
+    height: 70px;
+    border-bottom: 1px solid rgba(146, 140, 140, 0.288);
+}
+
+/* navigation */
+.nav {
+    /* nav as a container */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* nav as a flex item */
+    margin-left: 50px;
+    list-style-type: none;
+}
+.nav a {
+    text-decoration: none
+}
+
+/* search bar */
+.query {
+    /* as a flex container for form input */
+    display: flex;
+    flex-direction: row;
+    /* as a flex item of the header class element */
+    margin-left: auto;
+    margin-right: 50px;
+}
+.query input {
+    font-size: 1.2rem;
+    padding: 5px;
+}
+/* login/logout option */
+.login {
+    margin-right: 50px;
+    margin-left: auto;
+}
+/* cart */
+.cart {
+    margin-right: 50px;
+}

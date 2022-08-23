@@ -1,0 +1,16 @@
+form {
+  width: 35%;
+  margin: auto;
+  padding: 20px;
+}
+label, input {width: 100%;}
+input[type="submit"] {width: 100px; }
+input {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+h1 {
+  width: 100%;
+}
+.card {height: 400px;}
+.card__title {font-size: 1.5rem; margin: auto;}

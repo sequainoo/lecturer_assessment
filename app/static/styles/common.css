@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.main {
+    min-height: 75vh;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.aside {
+    flex: 20%;
+    align-self: flex-start;
+    /* height: 100%; */
+}
+.content {
+    display: flex;
+    border-left: 1px solid rgba(146, 140, 140, 0.288);
+    flex: 80%;
+    min-height: inherit;
+}
+.flashed-message {
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    background-color: rgba(127, 143, 2, 0.838);
+}

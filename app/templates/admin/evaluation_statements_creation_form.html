@@ -1,80 +1,142 @@
-<!doctype html>
-<html lang="en">
-  <head></head>
-  <body>
-    <ul>
-      <li><a href="/admin">Home</a></li>
-    </ul>
-    <h1></h1>
-    {% for message in get_flashed_messages() %}
-    <div class="flashed_message">{{ message }}</div>
-    {% endfor %}
-   
-    <section class="criteria">
-      <h2>Create Statements Under a Criteria Section</h2>
-      <form action="/admin/criterion-options" method="POST" class="criteria-option">
-	<ul>
-	{% for option in criterion_options %}
-	<li>{{ option.text }}: {{ option.value }}</li>
-	{% endfor %}
-	</ul>
-	<label>Name:</label>
-	<input name="text">
-	<label for="criterion-option-value">Value:</label>
-	<input id="criterion-option-value" type="text" name="value">
-        <input type="submit" value="Create">
-      </form>
+{% extends 'admin/base.html' %}
+{% block head %}
+<link href="/static/styles/admin/evaluation_statements_creation_form.css" rel="stylesheet" type="text/css">
+<script src="/static/js/admin/evaluation_creation_form.js"></script>
+{% endblock %}
+{% block body %}
+  <ul>
+    <li><a href="/admin">Home</a></li>
+  </ul>
+  <h1></h1>
+ 
+  {% for message in get_flashed_messages() %}
+  <div class="flashed_message">{{ message }}</div>
+  {% endfor %}
 
+<div class="container">
+  <div class="main">
+    <h2>Create Statements Under a Criterion</h2>
+    <section class="criteria section">
       <form action="/admin/criteria" method="POST" class="criterion">
-	<label>Criterion:</label>
-	<input type="text" name="name">
-        <input type="submit" value="Create">
+        <h3>Add a Criterion</h3>
+        <label>Criterion:</label>
+        <input type="text" name="name">
+        <input type="submit" value="Add">
       </form>
-
+  
       <form action="/admin/criterion-statements" method="POST" class="criterion-statement">
-	<label>Criterion:</label>
-	<select name="criterion_id">
-	  {% for criterion in criteria %}
-	  <option value="{{ criterion.id }}">{{ criterion.name }}</option>
-	  {% endfor %}
-	</select>
-	<label>Statement:</label>
-	<input name="text">
+        <h3>Add Statement Under a criterion</h3>
+        <label>Criterion:</label>
+        <select name="criterion_id">
+          {% for criterion in criteria %}
+          <option value="{{ criterion.id }}">{{ criterion.name }}</option>
+          {% endfor %}
+        </select>
+        <label>Statement:</label>
+        <input name="text">
         <input type="submit" value="Create">
       </form>
+      <form action="/admin/criterion-options" method="POST" class="criteria-option">
+        <h3>Add Option</h3>
+        <label>Name:</label>
+        <input name="text">
+        <label for="criterion-option-value">Value:</label>
+        <input id="criterion-option-value" type="text" name="value">
+        <input type="submit" value="Create">
+      </form>
+      <form class="created-options">
+        <h3>Options Created</h3>
+        <div>
+          <li><span>option</span><span>value</span><span>delete</span></li>
+          {% for option in criterion_options %}
+          <li>
+            <span>{{ option.text }}</span>
+            <span>{{ option.value }}</span>
+            <a class="delete" data-endpoint="/admin/criterion-options/{{ option.id }}">Delete</a>
+          </li>
+          {% endfor %}
+        </div>
+      </form>
+    </section>
+  
+    <h2>Add Statements not under a criterion</h2>
+    <section class="general-statements section">
+       <form action="/admin/general-statements" method="POST" class="general-statement">
+         <h3>Add a statement</h3>
+         <label>Statement:</label>
+         <input name="text">
+         <input type="submit" value="Add">
+       </form>
+         <form action="/admin/general-statements/options" method="POST" class="general-statement-option">
+         <h3>Add option to a statement</h3>
+         <label>Select Statement:</label>
+         <select name="general_statement_id">
+           {% for statement in general_statements %}
+           <option value="{{ statement.id }}">{{ statement.text }}</option>
+          {% endfor %}
+         </select>
+         <label>Option Name:</label>
+         <input name="text">
+         <label>Assigned Value to Option:</label>
+         <input name="value">
+         <input type="submit" value="Add">
+       </form>
+    </section>
+  
+    <h2>Add Open Ended Questions</h2>
+    <section class="general-question section">
+      <form action="/admin/general-questions" method="POST" class="question form">
+        <label>Question:</label>
+        <input name="question">
+        <input type="submit" value="Add">
+      </form>
+    </section>
+  </div>
+    
+  <aside class="created-evaluations aside">
+    <section class="categories">
+      {% for criterion in criteria %}
+      <div class="category-head">
+        <h3>{{ criterion.name }}</h3>
+        <a class="delete" data-endpoint="/admin/criteria/{{ criterion.id }}">Delete</a>
+      </div>
+	    {% for statement in criterion.statements %}
+	    <div class="category-statement">
+        <p>{{ statement.text }}</p>
+        <a class="delete" data-endpoint="/admin/criterion-statements/{{ statement.id }}">Delete</a>
+      </div>
+      {% endfor %}
+	    {% endfor %}
     </section>
 
     <section class="general-statements">
-      <h2>Create Statement not criterilized Section</h2>
-      <form action="/admin/general-statements" method="POST" class="general-statement">
-	<label>Statement:</label>
-	<input name="text">
-        <input type="submit" value="Create">
-      </form>
-
-      <form action="/admin/general-statements/options" method="POST" class="general-statement-option">
-	<label>Statement:</label>
-	<select name="general_statement_id">
-	  {% for statement in general_statements %}
-	  <option value="{{ statement.id }}">{{ statement.text }}</option>
-	  {% endfor %}
-	</select>
-	<label>Name:</label>
-	<input name="text">
-	<label>Value:</label>
-	<input name="value">
-	<input type="submit" value="Create">
-      </form>
+      <h3>Under no criteria</h3>
+      {% for statement in general_statements %}
+	    <div class="category-statement">
+        <p>{{ statement.text }}</p>
+        <a class="delete"
+         data-endpoint="/admin/general-statements/{{ statement.id }}">Delete</a>
+      </div>
+      {% for option in statement.options %}
+	    <div class="statement-options">
+        <p>{{ option.text }}: {{ option.value }}</p>
+        <a class="delete"
+         data-endpoint="/admin/general-statements/options/{{ statement.id }}">Delete</a>
+      </div>
+      {% endfor %}
+      {% endfor %}
     </section>
 
-    <section class="general-question">
-      <h2>Create Open Ended Question:</h2>
-      <form action="/admin/general-questions" method="POST" class="question form">
-	<label>Question:</label>
-	<input name="question">
-        <input type="submit" value="Create">
-      </form>
+    <section class="open-questions">
+      <h3>Open questions</h3>
+      {% for question in general_questions %}
+	    <div class="category-statement">
+        <p>{{ question.question }}</p>
+          <a class="delete" 
+           data-endpoint="/admin/general-questions/{{ question.id }}">Delete</a>
+      </div>
+      {% endfor %}
     </section>
-
-  </body>
-</html>
+  </aside>
+</div>
+{% endblock %}

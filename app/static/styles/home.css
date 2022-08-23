@@ -1,0 +1,82 @@
+/**
+ * content */
+.content {
+  flex: 1 0;
+  width: 100%;
+  padding: 2% 5%;
+}
+
+/** 
+ * content__title */
+.content__title {
+  flex: 0 0 10%;
+  margin: 10px auto;
+}
+
+/** 
+ * content__block */
+.content__block {
+  flex: 1 1;
+  width: 100%;
+  padding: 30px;
+  margin: 20px auto;
+  align-items: baseline;
+}
+
+.current {
+  flex: 1 1 70%;
+}
+.unevaluated {
+  flex: 1 1 70%;
+  align-self: flex-start;
+}
+
+/* card */
+.card {
+  display: flex;
+  flex-flow: column;
+  box-shadow: 0px 0px 10px 0px #333;
+  border-radius: 5px;
+  min-height: 50vh;
+  background-color: #fff;
+}
+
+.card__title { 
+  text-align: center;
+  background-color: #333;
+  padding: 50px;
+  margin-bottom: 20px;
+}
+.card__item {
+  padding: 5px 20px;
+  width: 100%;
+  list-style-type: none;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #ddd;
+  gap: 2%;
+}
+.course {
+  flex: 1 0 60%;
+}
+.lecturer {
+  flex: 1 0 20%;
+}
+span.evaluate {
+  flex: 1 1 10%;
+}
+a.evaluate {
+  flex: 1 1 10%;
+  text-decoration: none;
+  border: 1px solid #333;
+  padding: 10px;
+}
+a.evaluate:visited {color: #ccc;}
+
+.current {
+  flex: 1 1 70%;
+}
+.unevaluated {
+  flex: 1 1 70%;
+}

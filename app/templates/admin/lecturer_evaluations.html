@@ -1,0 +1,105 @@
+<div class="evaluation-content">
+  <a class="back" href="/admin/lecturers/{{ lecturer.id }}">Back</a>
+  <h1 class="heading">{{lecturer.name}} - {{ course.name }}</h1>
+  <div class="overall-info info">
+    <span>Average Rating - {{ total_avg }}</span>
+    {% for number in range(stars) %}
+    <!-- <span class="star">*</span> -->
+    {% endfor %}
+    {% if plus_half_star %}
+    <!-- <span class="star half-star">(*)</span> -->
+    {% endif %}
+  </div>
+  
+  <section class="criterion-evaluations">
+    <h3>Categorized Reviews</h3>
+    {% for criterion in criterion_evaluations %}
+    <article>
+      <h4 class="title">
+        <span class="title__text">{{ criterion['text'] }}</span>
+        <span class="title__avg_option avg-option">{{ criterion['avg_option'] }}</span>
+        <span class="title__avg_rating avg-rating">{{ criterion['avg_rating'] }}</span>
+      </h4>
+      {% for statement in criterion['statements'] %}
+      <p class="statement">
+        <span class="statement__text">{{ statement['text'] }}</span>
+        <span class="statement__avg-option avg-option">{{ statement['avg_option'] }}</span>
+        <span class="statement__avg-rating avg-rating">{{ statement['avg_rating'] }}</span>
+      </p>
+      <ul class="options hide" >
+        <h4>A list of all reviews</h4>
+        {% for eval in statement['evaluations'] %}
+        <li class="options__item">{{ eval['text'] }}</li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </article>
+    {% endfor %}
+
+    <h3>Uncategorized Reviews</h3>
+    <article>
+      {% for statement in general_statement_evaluations %}
+      <p class="statement">
+        <span class="statement__text">{{ statement['text'] }}</span>
+        <span class="statement__avg-option avg-option">{{ statement['avg_option'] }}</span>
+        <span class="statement__avg-rating avg-rating">{{ statement['avg_rating'] }}</span>
+      </p>
+      <!-- list of options as the reviews: to be hidden -->
+      <ul class="options hide" >
+        <h4>A list of all reviews</h4>
+        {% for eval in statement['evaluations'] %}
+        <li class="options__item">{{ eval['text'] }}</li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </article>
+
+    <h3>Open-ended Reviews</h3>
+    <article>
+      {% for question in general_question_evaluations %}
+      <p class="statement">{{ question['text'] }}</p>
+      <!-- list of answers given as reviews: to be hidden -->
+      <ul class="answers hide" >
+        <h4>A list of all reviews</h4>
+        {% for eval in question['evaluations'] %}
+        <li class="answers__item">{{ eval['answer'] }}</li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+      </article>
+  </section>
+  
+  <!-- <section class="general-statement-evaluations">
+    <h3>Uncategorized Reviews</h3>
+    <article>
+      {% for statement in general_statement_evaluations %}
+      <p class="statement">
+        <span class="statement__text">{{ statement['text'] }}</span>
+        <span class="statement__avg-option avg-option">{{ statement['avg_option'] }}</span>
+        <span class="statement__avg-rating avg-rating">{{ statement['avg_rating'] }}</span>
+      </p>
+      list of options as the reviews: to be hidden
+      <ul class="options" hidden>
+        {% for eval in statement['evaluations'] %}
+        <li class="options__item">{{ eval['text'] }}</li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </article>
+  </section> -->
+  
+  <!-- <section class="general-question-evaluations">
+    <article>
+    <h3>Open-ended Reviews</h3>
+    {% for question in general_question_evaluations %}
+    <p class="statement">{{ question['text'] }}</p>
+    list of answers given as reviews: to be hidden
+    <ul class="answers" hidden>
+      {% for eval in question['evaluations'] %}
+      <li class="answers__item">{{ eval['answer'] }}</li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+    </article>
+  </section> -->
+</div>
