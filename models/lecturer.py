@@ -119,9 +119,9 @@ class Lecturer(Base):
         c_group = {}
         for c_eval in c_evaluations:
             if c_eval.criterion_id not in c_group:
-                c_group[c_eval.criterion_id] = {c_eval.statement_id: []}
-            elif c_eval.statement_id not in c_group[c_eval.criterion_id]:
-                c_group[c_eval.criterion_id] = {c_eval.statement_id: []}
+                c_group[c_eval.criterion_id] = {}
+            if c_eval.statement_id not in c_group[c_eval.criterion_id]:
+                c_group[c_eval.criterion_id][c_eval.statement_id] = []
             c_group[c_eval.criterion_id][c_eval.statement_id].append(c_eval)
         # oorganize
         organized_data = []

@@ -39,6 +39,7 @@ def create_general_statement_option():
 def delete_general_statement_option(id_):
     """deletes an option for criterion evaluation statements"""
     option = storage.get('GeneralStatementOption', id_)
+    print(id_)
     if option:
         storage.remove(option)
         storage.save()

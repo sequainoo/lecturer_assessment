@@ -6,14 +6,14 @@
     {% block head %}
     {% endblock %}
   </head>
-  <body class="flex-column color-default bg-color-standard">
-    <header class="header flex-column">
-      <nav class="header__nav content-center-vertical-row content-align-right-row bg-color-opposite color-opposite">
+  <body class="flex-column color-default bg-1">
+    <header class="header flex-column bg-2">
+      <nav class="header__nav content-center-vertical-row content-align-right-row color-2 bg-3">
         <span class="welcome font-size-below-normal">
-	        <span class="welcome__text color-opposite-deep">Welcome,</span> 
+	        <span class="welcome__text ">Welcome,</span> 
 	        <span class="">{{student.first_name}}</span>
 	      </span>
-        <a href="/logout?token={{ token }}" class="logout font-size-below-normal ">
+        <a href="/logout?token={{ token }}" class="logout font-size-small color-1 bg-3">
 	        logout
 	      </a>
       </nav>
@@ -23,7 +23,7 @@
 	  
         {% endblock %}
       </h1>
-      <span class="underline underline-big"></span>
+      <!-- <span class="underline underline-big"></span> -->
       <span class="underline underline-small"></span>
     </header>
 
@@ -33,6 +33,6 @@
     {% block content %}
     {% endblock %}
     </section>
-    <footer class="footer text-center content-center"><span class="footer__text">Copyright&copy;</span><footer>
+    <footer class="footer text-center content-center bg-3"><span class="footer__text color-1">Copyright&copy;</span><footer>
   </body>
 </html>

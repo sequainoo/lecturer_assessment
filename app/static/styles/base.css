@@ -9,24 +9,23 @@
  * body */
 body {
   min-height: 100vh;
-  font-family: "Lucida Console", Monospace;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /**
  * style the header */
 .header {
-  flex: 0 0 30vh;
-  margin-bottom: 15px;  
+  flex: 0 0 25vh;
 }
 
 /** header__nav */
 .header__nav {
   margin-top: 0px;
-  flex: 0 0 30%;
+  flex: 0 0 35%;
   width: 100%;
   padding-left: 10%;
   padding-right: 10%;
-  box-shadow: 0px 2px 5px 2px #000;
+  box-shadow: 0px 1px 3px 1px #100F0F;
 }
 
 /**
@@ -37,13 +36,16 @@ body {
 
 /** logout link on nav */
 .logout {
-  color: #ddd;
+  color: #444;
   padding: 5px 10px;
-  box-shadow: 0px 0px 2px 2px rgba(196, 188, 188, 0.4);
-  text-decoration: none; 
+  box-shadow: 0px 0px 2px 0px #0F3D3E;
+  text-decoration: none;
+  font-weight: lighter;
+  border: 2px solid #F1F1F1;
+  border-radius: 5px;
 }
 .logout:visited {
-  color: #ddd;
+  color: #F1F1F1;
 }
 
 /**
@@ -56,7 +58,7 @@ body {
 .underline {
   content: '';
   height: 2px;
-  background-color: #333;
+  background-color: #0F3D3E;
   /*width: 90px;*/
   margin: 0px auto auto;
 }
@@ -218,28 +220,29 @@ body {
 .font-bold {font-weight: bold;}
 
 /*********************** colors ********************************/
-.color-default {color: #333;}
-.color-default-light {color: #544;}
-.color-opposite {color: #ccc;}
-.color-opposite-deep {color: #eee;}
-.color-default-deep {color: #111;}
-.bg-color-standard {background-color: #f9f5f5d3;}
-.bg-color-opposite {background-color: #333;}
-.bg-color-opposite-light {color: #444;}
+.color-1 {color: #F1F1F1;}
+.color-2 {color: #E2DCC8;}
+.color-3 {color: #0F3D3E;}
+.color-4 {color: #100F0F;}
+
+.bg-1 {background-color: #F1F1F1;}
+.bg-2 {background-color: #E2DCC8;}
+.bg-3 {background-color: #0F3D3E;}
+.bg-4 {background-color: #100F0F;}
 
 /** 
- * card */
+  * card */
 .card {
   display: flex;
   flex-flow: column;
-  box-shadow: 0px 0px 10px 0px #333;
+  box-shadow: 0px 0px 10px 0px #100F0F;
   border-radius: 5px;
   min-height: 50vh;
-  background-color: #fff;
+  background-color: #E2DCC8;
 }
 .card__title { 
   text-align: center;
-  background-color: #333;
+  background-color: #0F3D3E;
   padding: 50px;
   margin-bottom: 20px;
 }
@@ -252,5 +255,5 @@ body {
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid #ddd;
-  gap: 2%;
+  gap: 1%;
 }

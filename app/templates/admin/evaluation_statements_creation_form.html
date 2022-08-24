@@ -4,7 +4,7 @@
 <script src="/static/js/admin/evaluation_creation_form.js"></script>
 {% endblock %}
 {% block body %}
-  <ul>
+  <ul class="nav">
     <li><a href="/admin">Home</a></li>
   </ul>
   <h1></h1>
@@ -20,7 +20,7 @@
       <form action="/admin/criteria" method="POST" class="criterion">
         <h3>Add a Criterion</h3>
         <label>Criterion:</label>
-        <input type="text" name="name">
+        <input type="text" name="name" placeholder="category" aria-placeholder="Like Organisation">
         <input type="submit" value="Add">
       </form>
   
@@ -33,19 +33,19 @@
           {% endfor %}
         </select>
         <label>Statement:</label>
-        <input name="text">
+        <input name="text" placeholder="lecturer comes prepared">
         <input type="submit" value="Create">
       </form>
       <form action="/admin/criterion-options" method="POST" class="criteria-option">
         <h3>Add Option</h3>
-        <label>Name:</label>
-        <input name="text">
+        <label>Option:</label>
+        <input name="text" placeholder="Strongly Agree">
         <label for="criterion-option-value">Value:</label>
         <input id="criterion-option-value" type="text" name="value">
         <input type="submit" value="Create">
       </form>
       <form class="created-options">
-        <h3>Options Created</h3>
+        <h4>Options Created</h4>
         <div>
           <li><span>option</span><span>value</span><span>delete</span></li>
           {% for option in criterion_options %}
@@ -68,17 +68,17 @@
          <input type="submit" value="Add">
        </form>
          <form action="/admin/general-statements/options" method="POST" class="general-statement-option">
-         <h3>Add option to a statement</h3>
+         <h3>Add option to a General statement</h3>
          <label>Select Statement:</label>
          <select name="general_statement_id">
            {% for statement in general_statements %}
            <option value="{{ statement.id }}">{{ statement.text }}</option>
           {% endfor %}
          </select>
-         <label>Option Name:</label>
-         <input name="text">
-         <label>Assigned Value to Option:</label>
-         <input name="value">
+         <label>Option:</label>
+         <input name="text" placeholder="Satisfactory">
+         <label>Option Value:</label>
+         <input name="value" placeholder="3">
          <input type="submit" value="Add">
        </form>
     </section>
@@ -86,8 +86,9 @@
     <h2>Add Open Ended Questions</h2>
     <section class="general-question section">
       <form action="/admin/general-questions" method="POST" class="question form">
+        <h3>Add a Question</h3>
         <label>Question:</label>
-        <input name="question">
+        <input name="question" placeholder="Is the lecturer influential?">
         <input type="submit" value="Add">
       </form>
     </section>
@@ -112,7 +113,7 @@
     <section class="general-statements">
       <h3>Under no criteria</h3>
       {% for statement in general_statements %}
-	    <div class="category-statement">
+	    <div class="general-statement">
         <p>{{ statement.text }}</p>
         <a class="delete"
          data-endpoint="/admin/general-statements/{{ statement.id }}">Delete</a>
@@ -121,7 +122,7 @@
 	    <div class="statement-options">
         <p>{{ option.text }}: {{ option.value }}</p>
         <a class="delete"
-         data-endpoint="/admin/general-statements/options/{{ statement.id }}">Delete</a>
+         data-endpoint="/admin/general-statements/options/{{ option.id }}">Delete</a>
       </div>
       {% endfor %}
       {% endfor %}
