@@ -19,3 +19,17 @@ def home():
     return render_template('home.html',
                            student=student,
                            token=token)
+
+@app.route('/')
+def also():
+    token = request.args.get('token', None)
+    if not token or not is_logged_in(token)\
+        or login_expired(token):
+        return redirect(url_for('login'))
+
+    session_expiry_update(token)
+
+    student = storage.get('Student', token)
+    return render_template('home.html',
+                           student=student,
+                           token=token)
