@@ -11,7 +11,8 @@ class Program(Base):
     def __init__(self, **kwargs):
         if 'name' not in kwargs:
             raise ValueError('Must provide a name of program')
-        if type(kwargs['name']) is not str:
+        if type(kwargs['name']) is not str\
+            or (kwargs['name'].lower()[0] < 'a' or kwargs['name'].lower()[0] > 'z'):
             raise TypeError('name must be str')
         super().__init__(**kwargs)
 

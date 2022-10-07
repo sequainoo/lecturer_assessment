@@ -7,9 +7,15 @@ $(function() {
     const statementRadios = $(':checked', $('.general-statement'));
     const questionsAnswers = $(':text', '.general-question');
 
+    const errorParagraph = $('<p class="error-paragraph">You cannot submit</p>');
     let labels = $('label', $('.criteria'));
     if (labels.length > criteriaRadios.length) {
-      alert('Select all required');
+      const left = $(this).offset().left + $(this).outerWidth();
+      const top = $(this).offset().top;
+      errorParagraph[0].style.left = left + 10 + 'px';
+      errorParagraph[0].style.top = (top - 40) + 'px';
+      $(this).before(errorParagraph);
+      setTimeout(()=> {errorParagraph.remove()}, 1500);
       return;
     }
     
@@ -45,4 +51,40 @@ $(function() {
     });
     this.disabled = 'disabled';
   });
+
+  // Control how much data ccomes on the page
+  // Only few questions are displayed and the rest are hidden from view
+  const hidden_blobs =  getHiddenBlobs();
+  let pointer = 0;
+  let parentForm = hidden_blobs[pointer].parent();
+  
+  // show the first
+  parentForm.css('display','block');
+  hidden_blobs[pointer].removeClass('hide');
+
+  // when the next button is clicked hide the currently displayed data
+  // and show the next
+  $('.next').click(function() {
+    if (pointer < hidden_blobs.length - 1) {
+      parentForm.css('display', 'none');
+      hidden_blobs[pointer].addClass('hide');
+      pointer ++;
+      parentForm = hidden_blobs[pointer].parent();
+      parentForm.css('display', 'block');    
+      hidden_blobs[pointer].removeClass('hide');
+    }    
+  });
+
+  // move back when prev button is pressed
+  $('.prev').click(function() {
+    if (pointer > 0) {
+      parentForm.css('display', 'none');
+      hidden_blobs[pointer].addClass('hide');
+      pointer --;
+      parentForm = hidden_blobs[pointer].parent();
+      parentForm.css('display', 'block');    
+      hidden_blobs[pointer].removeClass('hide');
+    }
+  });
+   
 });

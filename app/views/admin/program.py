@@ -31,11 +31,19 @@ def create_program():
 
     if not name:
         return jsonify({'message': 'name not present'}), 400
-
-    program = Program(name=name)
-    storage.add(program)
-    storage.save()
-    flash('success')
+    name = name.title()
+    program = storage.filter('Program', name=name)
+    if not len(program):
+        try:
+           program = Program(name=name)
+        except (TypeError) as e:
+            flash('Must not start with a number or must not be a number')
+        else:
+            storage.add(program)
+            storage.save()
+            flash('success')
+    else:
+        flash('Already Exist')
 
     # return jsonify({'message': 'created succesfully'}), 201
     return redirect(url_for('get_admin_page'))

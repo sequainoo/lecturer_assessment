@@ -15,7 +15,7 @@
 
 <div class="container">
   <div class="main">
-    <h2>Create Statements Under a Criterion</h2>
+    <h2>Add Categorized Questions</h2>
     <section class="criteria section">
       <form action="/admin/criteria" method="POST" class="criterion">
         <h3>Add a Criterion</h3>
@@ -25,19 +25,19 @@
       </form>
   
       <form action="/admin/criterion-statements" method="POST" class="criterion-statement">
-        <h3>Add Statement Under a criterion</h3>
+        <h3>Add a Question</h3>
         <label>Criterion:</label>
         <select name="criterion_id">
           {% for criterion in criteria %}
           <option value="{{ criterion.id }}">{{ criterion.name }}</option>
           {% endfor %}
         </select>
-        <label>Statement:</label>
-        <input name="text" placeholder="lecturer comes prepared">
+        <label>Question:</label>
+	<textarea name="text" rows="4" cols="5" placeholder="lecturer comes prepared"></textarea>
         <input type="submit" value="Create">
       </form>
       <form action="/admin/criterion-options" method="POST" class="criteria-option">
-        <h3>Add Option</h3>
+        <h3>Add An Option</h3>
         <label>Option:</label>
         <input name="text" placeholder="Strongly Agree">
         <label for="criterion-option-value">Value:</label>
@@ -59,17 +59,17 @@
       </form>
     </section>
   
-    <h2>Add Statements not under a criterion</h2>
+    <h2>Add Uncatogorized Questions</h2>
     <section class="general-statements section">
        <form action="/admin/general-statements" method="POST" class="general-statement">
-         <h3>Add a statement</h3>
-         <label>Statement:</label>
+         <h3>Add a Question</h3>
+         <label>Question:</label>
          <input name="text">
          <input type="submit" value="Add">
        </form>
          <form action="/admin/general-statements/options" method="POST" class="general-statement-option">
-         <h3>Add option to a General statement</h3>
-         <label>Select Statement:</label>
+         <h3>Add An Option To a Question</h3>
+         <label>Select Question:</label>
          <select name="general_statement_id">
            {% for statement in general_statements %}
            <option value="{{ statement.id }}">{{ statement.text }}</option>

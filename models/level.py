@@ -23,7 +23,11 @@ class Level(Base):
         # and should not be a float ie a remainder
         if level < 100:
             raise ValueError('Not a valid level')
-        if (level / 100) > 9 or (level % 100) != 0:
+        if (level / 100) > 3 or (level % 100) != 0:
             raise ValueError('Not a valid level')
         self.level = level
         self.id = str(self.level)
+
+
+    def __str__(self):
+        return str(self.level)

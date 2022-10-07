@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block head %}
+<script src="/static/js/evaluation_form_functions.js"></script>
 <script src="/static/js/evaluation_form.js"></script>
+<script scr="/static/js/"></script>
 <link rel="stylesheet" href="/static/styles/home.css">
 <link rel="stylesheet" href="/static/styles/evaluation_form.css">
 {% endblock %}
@@ -13,13 +15,19 @@
 {% endblock %}
 
 {% block content %}
-
-<form class="criteria">
+<!--<h2 class="heading">Provide suitable answers</h2>-->
+  <!-- navigation buttons -->    
+  <div class="navigation-btns">
+    <button class="btn prev">Prev</button>
+    <button class="btn next">Next</button>
+  </div>
+<form class="criteria ">
+  
   <h2>Select Options that best suits the statement</h2>
 
   {% for criterion in criteria %}
-  <div class="criterion">
-    <h3>{{ criterion.name }}</h3>
+  <div class="criterion hide">
+    <h3 class="">{{ criterion.name }}</h3>
     {% for statement in criterion.statements %}
     <div class="statement">
       <label>{{ statement.text }}</label>
@@ -39,9 +47,9 @@
 </form>
     
 <form class="general-statement">
-  <h2>For each of these statements select the best option.</h2>
+  <h2 class="">For each of these statements select the best option.</h2>
   {% for statement in general_statements %}
-  <div class="statement">
+  <div class="statement hide">
     <label>{{ statement.text}}</label>
     <div class="options">
       {% for option in statement.options %}
@@ -59,9 +67,9 @@
 </form>
 
 <form class="general-question">
-  <h2>Answer these open ended questions </h2>
+  <h2 class="">Answer these open ended questions </h2>
   {% for question in general_questions %}
-  <div class="statement">
+  <div class="statement hide">
     <label>{{ question.question }}</label>
     <input type="text" data-student_id="{{ student.id }}"
      data-lecturer_id="{{ course.lecturer.id }}" data-course_id="{{ course.id }}"
@@ -71,7 +79,7 @@
   </div>
   {% endfor %}
 </form>
-    
+
 <button class="submit btn">Submit</button>
 <input class="course-id-holder" value="{{ course.id }}?token={{token}}" hidden>
 {% endblock %}

@@ -99,7 +99,8 @@ form h3 {
   color: #0F3D3E;
   margin-bottom: 24px;
 }
-.section form input, .section form select {
+.section form input, .section form select,
+.section form textarea {
   width: 70%;
   outline: none;
   padding: 10px;
@@ -114,6 +115,14 @@ form h3 {
   margin-left: auto;
   margin-right: auto;
   margin: 2px auto 24px;
+}
+.section form textarea {
+  width: 90%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
 }
 label {
   width: 80%;

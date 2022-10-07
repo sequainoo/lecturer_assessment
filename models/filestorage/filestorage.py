@@ -40,7 +40,11 @@ class Storage:
             # for each search criteria, if no match skip obj
             matched_flag = 1 # indicates a match of all attrs and value
             for attr, value in kwargs.items():
-                if getattr(obj, attr, None) != value:
+                obj_attr_value = getattr(obj, attr, None)
+                if attr == 'name':
+                    value = value.lower()
+                    obj_attr_value = obj_attr_value.lower()
+                if obj_attr_value != value:
                     matched_flag = 0
                     break
             if matched_flag:
