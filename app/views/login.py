@@ -25,7 +25,7 @@ def login():
 
     if not student.validate(password):
         flash('Password is not valid')
-        return render_tempate('login.html')
+        return render_template('login.html')
     
     log_into_session(student.id)
     url = url_for('home') + '?' + 'token=' + student.id

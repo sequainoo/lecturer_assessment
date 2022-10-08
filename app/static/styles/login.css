@@ -49,3 +49,11 @@ h1 {
   font-size: 1.5rem;
   margin: auto;
 }
+.flashed_message {
+  text-align: center;
+  background-color: red;
+  width: 100%;
+  color: white;
+  padding: 10px;
+  margin-top: 30px;
+}
