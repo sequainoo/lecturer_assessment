@@ -1,6 +1,7 @@
 <div class="evaluation-content">
   <a class="back" href="/admin/lecturers/{{ lecturer.id }}">Back</a>
   <h1 class="heading">{{lecturer.name}} - {{ course.name }}</h1>
+  <span>Year: {{ course.year }}</span>
   <div class="overall-info info">
     <span>Average Rating - {{ total_avg }}</span>
     {% for number in range(stars) %}

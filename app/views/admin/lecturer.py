@@ -115,6 +115,11 @@ def get_lecturer_evaluations(lecturer_id, course_id):
     course = storage.get('Course', course_id)
     if not lecturer or not course:
         abort(404, 'not found')
+
+    # doing this for a stupid reason, the list retrieved has year attr on course obj.
+    for _course in lecturer.courses:
+        if _course.id == course.id:
+            course = _course
     
     g_q_evals = lecturer.get_general_question_evaluations(course)
     g_s_evals, g_s_avg = lecturer.get_general_statement_evaluations(course)

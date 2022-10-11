@@ -21,6 +21,14 @@ class Lecturer(Base):
                                               lecturer_id=self.id)
         course_list = [storage.get('Course', lecturer_course.course_id)
                        for lecturer_course in lecturer_course_list]
+
+        print('working')
+        for course in course_list:
+            for lecturer_course in lecturer_course_list:
+                if course.id == lecturer_course.course_id:
+                    course.year = lecturer_course.year
+                    print(course.year)
+                    continue
         return course_list
 
     def add_course(self, course):

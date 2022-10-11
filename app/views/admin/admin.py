@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+import datetime
+
 from flask import render_template, request, url_for, redirect
 
 from app.app import app
@@ -16,7 +18,8 @@ def get_admin_page():
                            semesters=storage.all('Semester'),
                            programs=storage.all('Program'),
                            courses=storage.all('Course'),
-                           lecturers=storage.all('Lecturer'))
+                           lecturers=storage.all('Lecturer'),
+                           year=datetime.date.today().year)
 
 
 @app.route('/admin/login', methods=['GET', 'POST'])

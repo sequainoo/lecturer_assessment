@@ -89,6 +89,9 @@
       {% endfor %}
     </select>
   
+    <label>Year: </label>
+    <input type="number" min="1980" max="{{year + 4}}" name="year" placeholder="Year course is assigned to lecturer">
+
     <input type="submit" value="Associate" class="btn-filled">
   </form>
 

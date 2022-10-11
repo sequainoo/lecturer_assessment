@@ -12,8 +12,9 @@ def create_lecturer_course():
     """
     lecturer_id = request.form.get('lecturer_id', None)
     course_id = request.form.get('course_id', None)
+    year = request.form.get('year', None)
 
-    if not course_id or not lecturer_id:
+    if not course_id or not lecturer_id or not year:
         flash('Provide all data')
         return redirect(url_for('get_admin_page'))
 
@@ -22,10 +23,14 @@ def create_lecturer_course():
         flash('Provide Valid data')
         return redirect(url_for('get_admin_page'))
 
-    lecturer_course = LecturerCourse(lecturer_id=lecturer_id,
-                                     course_id=course_id)
-    storage.add(lecturer_course)
-    storage.save()
-    flash('success')
+    try:
+        lecturer_course = LecturerCourse(lecturer_id=lecturer_id,
+                                         course_id=course_id,
+                                         year=year)
+        storage.add(lecturer_course)
+        storage.save()
+        flash('success')
+    except (ValueError) as e:
+        flash(str(e))
 
     return redirect(url_for('get_admin_page'))
