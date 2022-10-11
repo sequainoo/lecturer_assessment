@@ -6,9 +6,14 @@ from flask import render_template
 
 from app.app import  app
 from models import storage
+from helpers import admin_is_logged_in
+
 
 @app.route('/admin/evaluation-statements-creation-form')
 def get_evaluation_statements_creation_form():
+    # check logged in
+    if not admin_is_logged_in():
+        return render_template('admin/login.html')
     criteria = storage.all('Criterion')
     criterion_options = storage.all('CriterionOption')
     general_statements = storage.all('GeneralStatement')

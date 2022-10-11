@@ -38,3 +38,19 @@ def session_expiry_update(token):
 def logout_of_session(token):
     if token in session:
         del session[token]
+
+# admin
+def log_admin_into_session():
+    session['admin'] = 'toor'
+
+
+def admin_is_logged_in():
+    if 'admin' in session:
+        return True
+    return False
+
+def logout_admin():
+    if 'admin' in session:
+        session.pop('admin')
+
+

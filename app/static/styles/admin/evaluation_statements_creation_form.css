@@ -1,13 +1,16 @@
 * {
-  color: #E2DCC8;
+  /*color: #E2DCC8;*/
+  color: #0F3D3E;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
-  background-color: #0F3D3E;
+  /*background-color: #0F3D3E;*/
+  background-color: #E2DCC8;
   padding: 0px 20px;
 }
 .nav {
-  background-color: #0F3D3E;
+  /*background-color: #0F3D3E;*/
+  background-color: #E2DCC8;
   padding: 50px;
   box-shadow: none;
 }
@@ -34,7 +37,9 @@ body {
 .aside {
   padding: 10px;
   flex: 1 1 30%;
-  background-color: #100F0F;
+  /*background-color: #100F0F;*/
+  background-color: #F1F1F1;
+  color: #E2DCC8;
   border-radius: 10px;
 }
 .criteria, .general-statements {
@@ -51,7 +56,8 @@ h2 {
   list-style-type: none;
   display: flex;
   flex-flow: column;
-  background-color: #100F0F;
+  /*background-color: #100F0F;*/
+  background-color: #F1F1F1;
   border-radius: 10px;
   padding: 20px;
   margin-top: 25px;
@@ -84,7 +90,8 @@ h2 {
   justify-content: center;
 }
 .section form {
-  box-shadow: 0 0 20px 0px #100F0F;
+  /*box-shadow: 0 0 20px 0px #100F0F;*/
+  box-shadow: 0 0 5px 0px #0F3D3E;
   flex: 1 0 30%;
   display: flex;
   flex-flow: column;
@@ -95,7 +102,8 @@ h2 {
 form h3 {
   text-align: center;
   padding: 20px;
-  background-color: #E2DCC8;
+  /*background-color: #E2DCC8;*/
+  background-color: #F1F1F1;
   color: #0F3D3E;
   margin-bottom: 24px;
 }
@@ -109,8 +117,8 @@ form h3 {
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
   border: none;
-  background-color: #E2DCC8;
-  color: #0F3D3E;
+  /*background-color: #E2DCC8;*/
+  /*color: #0F3D3E;*/
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -128,7 +136,8 @@ label {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  color: #E2DCC8;
+  /*color: #E2DCC8;*/
+  color: #0F3D3E;
 }
 .section form input[type="submit"] {
   background-color: #0F3D3E;
