@@ -4,50 +4,56 @@
 <link rel="stylesheet" href="/static/styles/home.css">
 {% endblock %}
 
+{% block title %}
+<h1 class="header__title font-size-heading-5 color-3">
+  {{year}}
+</h1>
+{% endblock %}
+
 {% block content %}
-    <main class="main">
+<main class="main">
 
-      <div class="content__block flex-row-wrap">
+  <div class="content__block flex-row-wrap">
 
-        <!--     unevaluated courses      -->
-        <ul class="unevaluated card color-3">
-          <h3 class="card__title font-size-heading-5 color-2">
-            Unevaluated Courses
-	        </h3>
-          <li class=" card__item font-size-normal font-bold">
-            <span class="course">Course</span> 
-	          <span class="lecturer">Lecturer</span>
-	          <span class="evaluate"></span>
-          </li>
-          {% for course in student.unevaluated_courses %}
-          <li class="color-default-light card__item font-size-small">
-            <span class="course">{{ course[0].name }}</span>
-            <span class="lecturer">{{ course[0].lecturer.name }}</span>
-	          <a class="evaluate btn-filled" href="/evaluate/{{ course[0].id }}?token={{ token }}">
-	            Evaluate
-	          </a>
-          </li>
-          {% endfor %}
-        </ul>
+    <!--     unevaluated courses      -->
+    <ul class="unevaluated card color-3">
+      <h3 class="card__title font-size-heading-5 color-2">
+        Unevaluated Courses
+      </h3>
+      <li class=" card__item font-size-normal font-bold">
+        <span class="course">Course</span> 
+        <span class="lecturer">Lecturer</span>
+        <span class="evaluate"></span>
+      </li>
+      {% for course in student.unevaluated_courses %}
+      <li class="color-default-light card__item font-size-small">
+        <span class="course">{{ course[0].name }}</span>
+        <span class="lecturer">{{ course[0].lecturer.name }}</span>
+        <a class="evaluate btn-filled" href="/evaluate/{{ course[0].id }}?token={{ token }}">
+          Evaluate
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
 
-        <!-- Current Courses -->
-        <ul class="current card color-3">
-          <h3 class="card__title font-size-heading-5 color-1">
-	          Current Courses
-	        </h3>
-          <li class="card__item font-size-normal font-bold">
-            <span class="course">Course</span> 
-     	    <span class="lecturer">Lecturer</span>
-          </li>
-           {% for course in student.current_courses %}
-          <li class="color-default-light card__item font-size-small">
-            <span class="course">{{ course[0].name }}</span>
- 	          <span class="lecturer">{{ course[0].lecturer.name }}</span>
-          </li>
-          {% endfor %}
-        </ul>
-           
-      </div>
-    </main>
+    <!-- Current Courses -->
+    <ul class="current card color-3">
+      <h3 class="card__title font-size-heading-5 color-1">
+       Current Courses
+      </h3>
+      <li class="card__item font-size-normal font-bold">
+        <span class="course">Course</span> 
+        <span class="lecturer">Lecturer</span>
+      </li>
+      {% for course in student.current_courses %}
+      <li class="color-default-light card__item font-size-small">
+        <span class="course">{{ course[0].name }}</span>
+        <span class="lecturer">{{ course[0].lecturer.name }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+          
+  </div>
+</main>
 {% endblock %}
 

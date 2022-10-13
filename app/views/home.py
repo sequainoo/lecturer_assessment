@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+import datetime
+
 from flask import render_template, redirect, request, url_for
 
 from app.app import app
@@ -18,6 +20,7 @@ def home():
     student = storage.get('Student', token)
     return render_template('home.html',
                            student=student,
+                           year=datetime.date.today().year,
                            token=token)
 
 @app.route('/')
@@ -32,4 +35,5 @@ def also():
     student = storage.get('Student', token)
     return render_template('home.html',
                            student=student,
+                           year=datetime.date.today().year,
                            token=token)
